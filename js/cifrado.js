@@ -54,7 +54,7 @@ const descifrar = () => {
 
 const copiar = () => {
   let aux = document.createElement("input");
-  aux.setAttribute("value", document.getElementById("salida"));
+  aux.setAttribute("value", document.getElementById("salida").value);
   document.body.appendChild(aux);
   aux.select();
   document.execCommand("copy");
