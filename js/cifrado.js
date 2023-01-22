@@ -1,4 +1,4 @@
-let mensajeCopiar;
+const mensajeCopiar;
 
 //Sirve para quitar las letras con caracteres eseciales y convertirlos a un caracter simple
 const quitarAcentos = (texto) => {
@@ -47,12 +47,16 @@ const descifrar = () => {
     });
     document.getElementById("copiar").disabled = false;
     document.getElementById("salida").innerHTML = descifrar;
-    mensajeCopiar = cifrado;
+    mensajeCopiar = descifrar;
     }
 }
 
 const copiar = () => {
-        mensajeCopiar.select();
-        document.execCommand('copy');
-        alert("Texto copiado");
+  let aux = document.createElement("input");
+  aux.setAttribute("value", mensajeCopiar);
+  document.body.appendChild(aux);
+  aux.select();
+  document.execCommand("copy");
+  document.body.removeChild(aux);
+  alert("Mensaje Copiado");
 }
