@@ -53,5 +53,11 @@ const descifrar = () => {
 };
 
 const copiar = () => {
-  
+  let aux = document.createElement("input");
+  aux.setAttribute("value", document.getElementById("salida"));
+  document.body.appendChild(aux);
+  aux.select();
+  document.execCommand("copy");
+  document.body.removeChild(aux);
+  alert("Mensaje Copiado");
 };
