@@ -1,8 +1,10 @@
+let mensajeCopiar;
 
 //Sirve para quitar las letras con caracteres eseciales y convertirlos a un caracter simple
 const quitarAcentos = (texto) => {
     return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   } 
+
 
 const cifrar = () => {
     let texto = quitarAcentos(document.getElementById("texto").value.toLowerCase());
@@ -23,6 +25,7 @@ const cifrar = () => {
     });
     document.getElementById("copiar").disabled = false;
     document.getElementById("salida").innerHTML = cifrado;
+    mensajeCopiar = cifrado;
     }
 }
 
@@ -44,13 +47,12 @@ const descifrar = () => {
     });
     document.getElementById("copiar").disabled = false;
     document.getElementById("salida").innerHTML = descifrar;
+    mensajeCopiar = cifrado;
     }
 }
 
 const copiar = () => {
-        let mensaje = document.getElementById("salida").value;
-        mensaje.select();
+        mensajeCopiar.select();
         document.execCommand('copy');
         alert("Texto copiado");
-
 }
