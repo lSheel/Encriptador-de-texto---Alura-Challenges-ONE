@@ -48,7 +48,7 @@ const descifrar = () => {
 }
 
 const copiar = () => {
-        let mensaje = document.getElementById("salida");
+        let mensaje = document.getElementById("salida").value;
         mensaje.select();
         document.execCommand('copy');
         alert("Texto copiado");
